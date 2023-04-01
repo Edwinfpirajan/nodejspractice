@@ -7,5 +7,6 @@ const router = express.Router();
 
 router.get('/employee',employeeController.getEmployee)
 router.post('/task', taskController.createTask)
+router.get('/get/task', taskController.getTask)
 
 module.exports = router;
