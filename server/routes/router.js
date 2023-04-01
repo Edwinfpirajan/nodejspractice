@@ -1,11 +1,11 @@
-const employeeController = require('../controller/employeeControler');
+const employeeController = require('../controllers/employeeControler');
+const taskController = require('../controllers/taskController');
 const express = require('express');
 const db = require('../common/connection')
 
 const router = express.Router();
 
-router.get('/employee', (req, res) => {
-    employeeController.getEmployee(req, res, db)
-})
+router.get('/employee',employeeController.getEmployee)
+router.post('/task', taskController.createTask)
 
 module.exports = router;
