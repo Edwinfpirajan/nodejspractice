@@ -1,9 +1,10 @@
 const db = require('../common/connection')
+const {taskQuery} = require('../queries/taskQuery')
 
 const createTask = (req, res) => {
   const { tittle, task } = req.body
 
-  db.query('INSERT INTO task (tittle, task) VALUES ($1, $2)', [tittle, task], (err, result) => {
+  db.query(taskQuery, [tittle, task], (err, result) => {
     if (err) {
       res.status(400).json({ error: err.message })
       return
